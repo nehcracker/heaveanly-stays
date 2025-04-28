@@ -1,0 +1,66 @@
+/* src/components/Navbar/Navbar.module.css */
+.navbar {
+    background-color: var(--color-primary);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo h1 {
+    color: var(--color-text-light);
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  
+  .navLinks {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+  
+  .navLinks a {
+    color: var(--color-text-light);
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+  
+  .navLinks a:hover {
+    opacity: 0.8;
+  }
+  
+  .auth {
+    display: flex;
+    align-items: center;
+  }
+  
+  .loginBtn {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+  
+  .loginBtn:hover {
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 768px) {
+    .navLinks {
+      display: none;
+    }
+  }
+  

@@ -1,0 +1,237 @@
+/* HomePage.module.css */
+.homePage {
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  background-image: url('/public/images/Homepage/Heavenly-stays2.jpg');
+  background-color: var(--color-primary); /* fallback for old browsers */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/images/Homepage/Heavenly-stays.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.heroContent {
+  max-width: 600px;
+  color: var(--color-text-light);
+}
+
+.heroContent h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.ctaButton {
+  background-color: var(--color-accent);
+  color: var(--color-text-light);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: transform 0.2s;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+}
+
+.categorySection {
+  padding: 4rem 0;
+  background-color: var(--color-neutral);
+}
+
+.categorySection h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--color-primary);
+}
+
+.categoryLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Updated to create a 2x2 grid layout */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categoryCard {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cardImage {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.3s;
+}
+
+.categoryCard:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardImage h3 {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.cardDetails {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardDetails p {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--color-text-dark);
+}
+
+.amenityTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.amenityTag {
+  background-color: rgba(247, 127, 0, 0.1);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 50px;
+  display: inline-block;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.amenityTag:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text-light);
+  transform: translateY(-2px);
+}
+
+.viewButton {
+  margin-top: auto;
+  text-align: center;
+  background-color: var(--color-accent);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.viewButton:hover {
+  background-color: var(--color-secondary);
+  transform: scale(1.03);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .cardImage {
+    height: 220px;
+  }
+}
+
+@media (max-width: 992px) {
+  .cardImage {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.2rem;
+  }
+  
+  /* Switch to single column on smaller screens */
+  .categories {
+    grid-template-columns: 1fr;
+  }
+  
+  .cardImage {
+    height: 250px;
+  }
+  
+  .categoryCard {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .viewButton {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardImage {
+    height: 200px;
+  }
+  
+  .amenityTags {
+    gap: 6px;
+  }
+  
+  .amenityTag {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+}

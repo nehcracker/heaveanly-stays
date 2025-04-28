@@ -1,0 +1,45 @@
+/* src/assets/styles/global.css */
+:root {
+  --color-primary: #003049;    /* Deep Purple */
+  --color-secondary: #d62828;  /* Dark Magenta */
+  --color-accent: #f77f00;     /* Bright Pink/Red */
+  --color-text-dark: #fcbf49;
+  --color-text-light: #ffffff;
+  --font-primary: 'Roboto', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+}
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-primary);
+    background-color: var(--color-neutral);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
