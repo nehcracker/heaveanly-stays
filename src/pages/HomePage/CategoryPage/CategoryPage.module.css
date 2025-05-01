@@ -1,416 +1,610 @@
 /* CategoryPage.module.css */
 
 .categoryPage {
-    min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+/* Header styling */
+.categoryHeader {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/images/categories/1br-header.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categoryHeader h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.categoryHeader p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+/* Filter section */
+.filterSection {
+  background-color: #f8f8f8;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 200px;
+}
+
+.filterGroup label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.filterGroup select, 
+.filterGroup input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Apartment list section */
+.apartmentListSection {
+  padding: 40px 0;
+}
+
+.apartmentList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.apartmentCard {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background-color: white;
+}
+
+.apartmentCard:hover {
+  transform: translateY(-5px);
+}
+
+.cardImage {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.priceTag {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.apartmentId {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.cardDetails {
+  padding: 20px;
+}
+
+.cardDetails h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.amenityTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.amenityTag {
+  background-color: #f0f7ff;
+  color: #0066cc;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.amenityTagMore {
+  color: #666;
+  font-size: 0.8rem;
+  padding: 4px 0;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.viewDetailsButton {
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  width: 100%;
+  max-width: 200px;
+}
+
+.viewDetailsButton:hover {
+  background-color: #e55a29;
+}
+
+/* Details section */
+.detailsSection {
+  padding: 40px 0;
+  background-color: #f8f8f8;
+}
+
+.selectPrompt {
+  text-align: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.unitDetails {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.unitId {
+  font-size: 1rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.imageGallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.imageGallery::-webkit-scrollbar {
+  height: 8px;
+}
+
+.imageGallery::-webkit-scrollbar-thumb {
+  background-color: #0066cc;
+  border-radius: 4px;
+}
+
+.imageGallery::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+.galleryImage {
+  min-width: 300px;
+  height: 220px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.galleryImage:hover {
+  transform: scale(1.02);
+}
+
+.galleryControlsContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.galleryControl {
+  background-color: white;
+  border: 1px solid #ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s;
+}
+
+.galleryControl:hover {
+  background-color: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+.detailsGrid {
+  grid-template-columns: 1fr 350px;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.detailsInfo h3 {
+  color: #0066cc;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.detailsInfo h3:first-child {
+  margin-top: 0;
+}
+
+.detailsInfo p {
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.amenitiesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.amenityItem {
+  display: flex;
+  align-items: center;
+}
+
+.amenityIcon {
+  color: #0066cc;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.bookingPanel {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 20px;
+  position: sticky;
+  top: 20px;
+}
+
+.bookingPanel h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0066cc;
+}
+
+.price span {
+  font-size: 1rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.apartmentIdTag {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-left: 3px solid #0066cc;
+}
+
+.calendar {
+  margin-bottom: 20px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.calendar h4 {
+  margin-bottom: 10px;
+}
+
+.bookButton {
+  width: 100%;
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 20px;
+}
+
+.bookButton:hover {
+  background-color: #e55a29;
+}
+
+.contactInfo {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.contactInfo h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #0066cc;
+}
+
+.contactInfo p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+/* Terms and Conditions section optimization */
+.termsContainer {
+  margin-top: 25px;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  border-left: 3px solid #0066cc;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.termsContainer h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #0066cc;
+  font-size: 1.1rem;
+}
+
+.termsList {
+  padding-left: 20px;
+  margin: 0;
+  list-style-position: outside;
+}
+
+.termsList li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding-right: 5px;
+}
+
+.termItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.termIcon {
+  margin-right: 8px;
+  color: #0066cc;
+  flex-shrink: 0;
+  margin-top: 3px; /* Align with text */
+}
+
+.termText {
+  flex: 1;
+}
+
+.fullTermsList {
+  margin-top: 15px;
+  padding-bottom: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .detailsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   
+  .bookingPanel {
+    position: static;
+    margin-top: 20px;
+  }
+  
+  .amenitiesList {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+  
+  .galleryImage {
+    min-width: 250px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
   .categoryHeader {
-    position: relative;
-    height: 50vh;
-    min-height: 300px;
-    background-image: url('/public/images/categories/1br-header.jpg');
-    background-color: var(--color-primary);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
-    display: flex;
-    align-items: center;
-  }
-  
-  .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    height: 250px;
   }
   
   .categoryHeader h1 {
-    color: var(--color-text-light);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
   }
   
   .categoryHeader p {
-    color: var(--color-text-light);
-    font-size: 1.2rem;
-  }
-  
-  .filterSection {
-    background-color: var(--color-primary);
-    padding: 1.5rem 0;
-    color: var(--color-text-light);
+    font-size: 1rem;
   }
   
   .filters {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 15px;
   }
   
   .filterGroup {
-    display: flex;
-    flex-direction: column;
-    min-width: 200px;
-  }
-  
-  .filterGroup label {
-    margin-bottom: 8px;
-    font-weight: 500;
-  }
-  
-  .filterGroup select,
-  .filterGroup input {
-    padding: 10px;
-    border-radius: 4px;
-    border: none;
-  }
-  
-  .apartmentListSection {
-    padding: 4rem 0;
-    background-color: var(--color-neutral);
-  }
-  
-  .apartmentListSection h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: var(--color-primary);
+    min-width: 100%;
   }
   
   .apartmentList {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr;
   }
   
-  .apartmentCard {
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+  .amenitiesList {
+    grid-template-columns: 1fr 1fr;
   }
   
-  .apartmentCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  .galleryImage {
+    min-width: 220px;
+    height: 160px;
   }
   
-  .cardImage {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
+  .termsList {
+    padding-left: 15px;
   }
   
-  .priceTag {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: var(--color-accent);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-weight: 600;
+  .termItem {
+    align-items: flex-start;
   }
   
-  .cardDetails {
-    padding: 20px;
-  }
-  
-  .cardDetails h3 {
-    margin-top: 0;
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-  }
-  
-  .description {
-    color: var(--color-text-dark);
-    margin-bottom: 15px;
-    line-height: 1.5;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .amenityTags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-  
-  .amenityTag {
-    background-color: rgba(247, 127, 0, 0.1);
-    color: var(--color-primary);
-    font-size: 0.75rem;
-    padding: 5px 10px;
-    border-radius: 50px;
-  }
-  
-  .amenityTagMore {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: var(--color-text-dark);
-    font-size: 0.75rem;
-    padding: 5px 10px;
-    border-radius: 50px;
+  .cardActions {
+    justify-content: center;
   }
   
   .viewDetailsButton {
     width: 100%;
-    padding: 12px;
-    background-color: var(--color-accent);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .categoryHeader {
+    height: 200px;
   }
   
-  .viewDetailsButton:hover {
-    background-color: var(--color-secondary);
-  }
-  
-  .detailsSection {
-    padding: 4rem 0;
-    background-color: white;
-  }
-  
-  .selectPrompt {
-    text-align: center;
-    padding: 40px;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-  }
-  
-  .unitDetails h2 {
-    margin-bottom: 30px;
-    color: var(--color-primary);
-  }
-  
-  /* Carousel styling */
-  .imageGallery {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 15px;
-    margin-bottom: 30px;
-    scroll-snap-type: x mandatory;
-  }
-  
-  .imageGallery::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  .imageGallery::-webkit-scrollbar-track {
-    background: #f0f0f0;
-    border-radius: 4px;
-  }
-  
-  .imageGallery::-webkit-scrollbar-thumb {
-    background-color: var(--color-accent);
-    border-radius: 4px;
-  }
-  
-  .galleryImage {
-    min-width: 300px;
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    scroll-snap-align: start;
-    flex: 0 0 auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .galleryImage:first-child {
-    min-width: 500px;
-  }
-  
-  .galleryControlsContainer {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-  }
-  
-  .galleryControl {
-    background-color: var(--color-accent);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .galleryControl:hover {
-    background-color: var(--color-secondary);
-  }
-  
-  .detailsGrid {
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    gap: 30px;
+  .categoryHeader h1 {
+    font-size: 1.5rem;
   }
   
   .amenitiesList {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
-    margin-top: 15px;
+    grid-template-columns: 1fr;
   }
   
-  .amenityItem {
-    display: flex;
-    align-items: center;
-    padding: 8px 0;
+  .galleryImage {
+    min-width: 200px;
+    height: 140px;
   }
   
-  .amenityIcon {
-    color: var(--color-accent);
-    margin-right: 8px;
-    font-weight: bold;
+  .cardDetails h3 {
+    font-size: 1.1rem;
   }
   
-  .bookingPanel {
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    padding: 25px;
-  }
+
   
   .price {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin-bottom: 20px;
+    font-size: 1.5rem;
   }
   
-  .price span {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--color-text-dark);
+  .termsContainer {
+    padding: 12px;
   }
   
-  .calendar {
-    margin-bottom: 20px;
+  .termsList li {
+    font-size: 0.85rem;
+  }
+}
+
+.unitDetails {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+  .unitDetails {
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .unitDetails {
+    padding: 15px 10px;
   }
   
-  .calendar h4 {
-    margin-bottom: 10px;
+  /* Also adjust the terms container padding */
+  .termsContainer {
+    padding: 10px;
+    margin-left: -5px;
+    margin-right: -5px;
   }
   
-  .bookButton {
-    width: 100%;
-    padding: 15px;
-    background-color: var(--color-accent);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    margin-bottom: 20px;
+  /* Reduce padding on the term list */
+  .termsList {
+    padding-left: 15px;
   }
   
-  .bookButton:hover {
-    background-color: var(--color-secondary);
+  /* Make sure text doesn't overflow */
+  .termsList li {
+    font-size: 0.85rem;
+    padding-right: 0;
   }
-  
-  .contactInfo {
-    border-top: 1px solid #e0e0e0;
-    padding-top: 20px;
-  }
-  
-  .contactInfo h4 {
-    margin-bottom: 10px;
-  }
-  
-  .contactInfo p {
-    margin: 5px 0;
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 992px) {
-    .detailsGrid {
-      grid-template-columns: 1fr;
-    }
-    
-    .bookingPanel {
-      order: -1;
-      margin-bottom: 30px;
-    }
-    
-    .galleryImage:first-child {
-      min-width: 300px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .categoryHeader h1 {
-      font-size: 2rem;
-    }
-    
-    .amenitiesList {
-      grid-template-columns: 1fr 1fr;
-    }
-    
-    .filters {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .filterGroup {
-      width: 100%;
-      max-width: 400px;
-    }
-    
-    .galleryImage, .galleryImage:first-child {
-      min-width: 250px;
-      height: 200px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .amenitiesList {
-      grid-template-columns: 1fr;
-    }
-    
-    .apartmentList {
-      grid-template-columns: 1fr;
-    }
-    
-    .galleryImage, .galleryImage:first-child {
-      min-width: 200px;
-      height: 180px;
-    }
-    
-    .apartments {
-      color: var(--color);
-      margin-bottom: 15px;
-    }
-    
-    .amenity {
-      background-color: var(--color-text-dark);
-      padding-bottom: 15px;
-      line-height: 1.5;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-  }
+}

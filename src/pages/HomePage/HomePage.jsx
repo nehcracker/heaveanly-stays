@@ -44,14 +44,14 @@ const HomePage = () => {
                     <span key={amenity} className={styles.amenityTag}>{amenity}</span>
                   ))}
                 </div>
-                <Link to="/category/studioApartment" className={styles.viewButton}>
+                <Link to="/category/studioFurnishedApartment" className={styles.viewButton}>
                   VIEW APARTMENTS
                 </Link>
               </div>
             </div>
             
             <div className={styles.categoryCard}>
-              <div className={styles.cardImage} style={{backgroundImage: `url('${process.env.PUBLIC_URL}/images/categories/1br.jpg')`}}>
+              <div className={styles.cardImage} style={{backgroundImage: `url('${process.env.PUBLIC_URL}/images/apartments/1br-5.jpg')`}}>
                 <h3>1BR Furnished Apartment</h3>
               </div>
               <div className={styles.cardDetails}>

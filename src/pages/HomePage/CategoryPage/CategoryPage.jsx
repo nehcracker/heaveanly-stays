@@ -1,5 +1,5 @@
 // src/pages/HomePage/CategoryPage/CategoryPage.jsx
-import React, { useState, } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './CategoryPage.module.css';
 import Navbar from '../../../components/Navbar/Navbar';
@@ -15,12 +15,24 @@ const CategoryPage = () => {
   const apartments = [
     {
       id: 1,
-      name: 'Ocean View 1BR Apartment',
-      description: 'Beautifully designed 1-bedroom apartment with stunning ocean views. Perfect for couples seeking a romantic getaway.',
-      price: 129,
-      images: ['/images/apartments/1br-ocean-1.jpg', '/images/apartments/1br-ocean-2.jpg', '/images/apartments/1br-ocean-3.jpg'],
-      amenities: ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Smart TV', 'Balcony', 'Ocean View'],
-      availability: [/* dates would go here */]
+      name: '1BR Apartment',
+      description: 'Beautifully designed 1-bedroom apartment located within the heart of Nyali. Perfect for couples seeking a romantic/working indoors getaway.',
+      price: 35,
+      images: ['/images/apartments/1br-2.jpg', '/images/apartments/1br-3.jpg', '/images/apartments/1br-4.jpg', '/images/apartments/1br-5.jpg', '/images/apartments/1br-6.jpg', '/images/apartments/1br-7.jpg', '/images/apartments/1br-8.jpg', '/images/apartments/1br-9.jpg',],
+      amenities: ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Smart TV', '2 Balconies', 'Hot water Shower', 'Ample parking', 'Laundry Service', '24/7 Security'],
+      availability: [/* dates would go here */],
+      termsAndConditions: [
+        "minimum stay: 2 nights",
+        "Check-out: 10:00 AM",
+        "No smoking",
+        "No loud music or noise after 10:00 PM",
+        "No illegal activities",
+        "No unregistered guests",
+        "No pets",
+        "No parties or events",
+        "Security deposit: $100 (refundable)",
+        "50% payment required to secure booking",
+      ]
     },
     {
       id: 2,
@@ -29,7 +41,19 @@ const CategoryPage = () => {
       price: 109,
       images: ['/images/apartments/1br-city-1.jpg', '/images/apartments/1br-city-2.jpg'],
       amenities: ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Smart TV', 'Washing Machine'],
-      availability: [/* dates would go here */]
+      availability: [/* dates would go here */],
+      termsAndConditions: [
+        "minimum stay: 2 nights",
+        "Check-out: 10:00 AM",
+        "No smoking",
+        "No loud music or noise after 10:00 PM",
+        "No illegal activities",
+        "No unregistered guests",
+        "No pets",
+        "No parties or events",
+        "Security deposit: $100 (refundable)",
+        "50% payment required to secure booking",
+      ]
     },
     {
       id: 3,
@@ -38,7 +62,19 @@ const CategoryPage = () => {
       price: 99,
       images: ['/images/apartments/1br-garden-1.jpg', '/images/apartments/1br-garden-2.jpg'],
       amenities: ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Balcony', 'Garden View'],
-      availability: [/* dates would go here */]
+      availability: [/* dates would go here */],
+      termsAndConditions: [
+        "minimum stay: 2 nights",
+        "Check-out: 10:00 AM",
+        "No smoking",
+        "No loud music or noise after 10:00 PM",
+        "No illegal activities",
+        "No unregistered guests",
+        "No pets",
+        "No parties or events",
+        "Security deposit: $100 (refundable)",
+        "50% payment required to secure booking",
+      ]
     }
   ];
 
@@ -111,6 +147,7 @@ const CategoryPage = () => {
               <div key={apartment.id} className={styles.apartmentCard}>
                 <div className={styles.cardImage} style={{backgroundImage: `url('${process.env.PUBLIC_URL}${apartment.images[0]}')`}}>
                   <div className={styles.priceTag}>${apartment.price}/night</div>
+                  <div className={styles.apartmentId}>ID: HS1BR-{apartment.id}</div>
                 </div>
                 <div className={styles.cardDetails}>
                   <h3>{apartment.name}</h3>
@@ -123,12 +160,15 @@ const CategoryPage = () => {
                       <span className={styles.amenityTagMore}>+{apartment.amenities.length - 4} more</span>
                     )}
                   </div>
-                  <button 
-                    className={styles.viewDetailsButton}
-                    onClick={() => handleUnitSelect(apartment)}
-                  >
-                    View Details & Book
-                  </button>
+                  
+                  <div className={styles.cardActions}>
+                    <button 
+                      className={styles.viewDetailsButton}
+                      onClick={() => handleUnitSelect(apartment)}
+                    >
+                      View Details & Book
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -140,7 +180,7 @@ const CategoryPage = () => {
         <div className={styles.container}>
           {selectedUnit ? (
             <div className={styles.unitDetails}>
-              <h2>{selectedUnit.name}</h2>
+              <h2>{selectedUnit.name} <span className={styles.unitId}>(ID: HS1BR-{selectedUnit.id})</span></h2>
               
               <div className={styles.galleryControlsContainer}>
                 <button 
@@ -182,10 +222,20 @@ const CategoryPage = () => {
                       </div>
                     ))}
                   </div>
+                  
+                  <h3>Terms & Conditions</h3>
+                  <div className={styles.fullTermsList}>
+                    {selectedUnit.termsAndConditions.map((term, index) => (
+                      <div key={index} className={styles.termItem}>
+                        <span className={styles.termIcon}>•</span> {term}
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 
                 <div className={styles.bookingPanel}>
                   <h3>Book This Apartment</h3>
+                  <div className={styles.apartmentIdTag}>ID: HS1BR-{selectedUnit.id}</div>
                   <div className={styles.price}>${selectedUnit.price} <span>/night</span></div>
                   
                   <div className={styles.calendar}>
