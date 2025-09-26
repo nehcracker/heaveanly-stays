@@ -4,6 +4,7 @@ import styles from './CategoryPage3BR.module.css';
 import Navbar from '../../../components/Navbar/Navbar';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { Title, Meta, Link as HeadLink } from 'react-head';
 
 const CategoryPage3BR = () => {
   const [selectedUnit, setSelectedUnit] = useState(null);
@@ -13,10 +14,10 @@ const CategoryPage3BR = () => {
   const apartments = [
     {
       id: 1,
-      name: 'Premium 3BR Oceanfront Villa',
+      name: '3br Apartment',
       description: 'Luxurious 3-bedroom oceanfront villa with panoramic sea views. Spacious living areas and premium furnishings make this perfect for families or groups.',
-      price: 349,
-      images: ['/images/apartments/3br-ocean-1.jpg', '/images/apartments/3br-ocean-2.jpg', '/images/apartments/3br-ocean-3.jpg'],
+      price: 120,
+      images: ['/images/apartments/3br3.jpg', '/images/apartments/3br1.jpg', '/images/apartments/3br2.jpg', '/images/apartments/3br4.jpg', '/images/apartments/3br5.jpg', '/images/apartments/3br6.jpg', '/images/apartments/3br7.jpg', '/images/apartments/3br8.jpg', '/images/apartments/3br9.jpg', '/images/apartments/3br10.jpg', '/images/apartments/3br11.jpg', '/images/apartments/3br12.jpg'],
       amenities: ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Smart TV', 'Balcony', 'Ocean View', 'Washer & Dryer', 'King Beds', 'Private Pool', 'Parking Space'],
       availability: [/* dates would go here */]
     },
@@ -29,15 +30,7 @@ const CategoryPage3BR = () => {
       amenities: ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Smart TV', 'Wrap-around Terrace', 'City View', 'Washer & Dryer', 'Home Office', 'Gym Access', 'Parking Space'],
       availability: [/* dates would go here */]
     },
-    {
-      id: 3,
-      name: 'Spacious 3BR Garden Villa',
-      description: 'Beautiful 3-bedroom villa nestled in lush gardens. Features a private yard, outdoor dining pavilion, and direct access to walking trails.',
-      price: 279,
-      images: ['/images/apartments/3br-garden-1.jpg', '/images/apartments/3br-garden-2.jpg'],
-      amenities: ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Smart TV', 'Private Garden', 'Outdoor Dining', 'BBQ Grill', 'Washer & Dryer', 'Game Room', 'Parking Space'],
-      availability: [/* dates would go here */]
-    }
+    
   ];
 
   const handleUnitSelect = (unit) => {
@@ -60,6 +53,13 @@ const CategoryPage3BR = () => {
   };
 
   return (
+    <>
+    <Title>3BR Furnished Apartments - Heavenly Stays BNB</Title>
+    <Meta name="description" content="Explore our luxurious 3-bedroom furnished apartments, perfect for families and groups. Book your stay today!" />
+    <HeadLink rel="canonical" href="https://www.heavenlystays.com/category/3br-furnished-apartments" />
+    <Meta property="og:title" content="3BR Furnished Apartments - Heavenly Stays" />
+    <Meta property="og:description" content="Explore our luxurious 3-bedroom furnished apartments, perfect for families and groups. Book your stay today!" />
+    <Meta property="og:image" content={`${process.env.PUBLIC_URL}/images/apartments/3br4.jpg`} />
     <div className={styles.categoryPage}>
       <Navbar />
       
@@ -269,6 +269,7 @@ const CategoryPage3BR = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

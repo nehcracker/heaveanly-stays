@@ -1,6 +1,7 @@
 // src/pages/HomePage/CategoryPage/CategoryPage.jsx
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Title, Meta, Link as HeadLink } from 'react-head';
 import styles from './CategoryPage.module.css';
 import Navbar from '../../../components/Navbar/Navbar';
 import Calendar from 'react-calendar';
@@ -11,7 +12,7 @@ const CategoryPage = () => {
   const [selectedUnit, setSelectedUnit] = useState(null);
   const [date, setDate] = useState(new Date());
 
-  // Sample data for 1BR apartments
+  // Data for 1BR apartments
   const apartments = [
     {
       id: 1,
@@ -36,10 +37,10 @@ const CategoryPage = () => {
     },
     {
       id: 2,
-      name: 'City Center 1BR Suite',
-      description: 'Modern 1-bedroom suite located in the heart of the city. Walking distance to restaurants, shops, and entertainment.',
-      price: 109,
-      images: ['/images/apartments/1br-city-1.jpg', '/images/apartments/1br-city-2.jpg'],
+      name: '1BR Apartment2',
+      description: 'Beautifully designed 1-bedroom apartment located within the heart of Nyali. Perfect for couples seeking a romantic/working indoors getaway.',
+      price: 40,
+      images: ['/images/apartments/1br2-1.jpg', '/images/apartments/1br2-2.jpg', '/images/apartments/1br2-8.jpg', '/images/apartments/1br2-9.jpg', '/images/apartments/1br2-3.jpg', '/images/apartments/1br2-4.jpg', '/images/apartments/1br2-4.jpg', '/images/apartments/1br2-5.jpg', '/images/apartments/1br2-6.jpg', '/images/apartments/1br2-7.jpg'], 
       amenities: ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Smart TV', 'Washing Machine'],
       availability: [/* dates would go here */],
       termsAndConditions: [
@@ -57,10 +58,10 @@ const CategoryPage = () => {
     },
     {
       id: 3,
-      name: 'Garden View 1BR Apartment',
+      name: '1BR Apartment3',
       description: 'Peaceful 1-bedroom apartment overlooking beautiful gardens. The perfect retreat for those seeking tranquility.',
-      price: 99,
-      images: ['/images/apartments/1br-garden-1.jpg', '/images/apartments/1br-garden-2.jpg'],
+      price: 35,
+      images: ['/images/apartments/1br3-1.jpg', '/images/apartments/1br3-2.jpg', '/images/apartments/1br3-3.jpg', '/images/apartments/1br3-4.jpg', '/images/apartments/1br3-5.jpg'],
       amenities: ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Balcony', 'Garden View'],
       availability: [/* dates would go here */],
       termsAndConditions: [
@@ -98,13 +99,20 @@ const CategoryPage = () => {
   };
 
   return (
+    <>
+      <Title>Heavenly Stays Mombasa - 1BR Furnished Apartments | air bnb mombasa</Title>
+      <Meta name="description" content="Explore our 1BR furnished apartments perfect for solo travelers, couples, and business guests." />
+      <Meta name="keywords" content="1BR apartments Nyali, 1br BNB Mombasa, air bnb mombasa, furnished apartments mombasa, vacation rentals, business stays, couples getaway mombasa" />
+      <HeadLink rel="canonical" href="https://www.heavenlystays.com/category/1br-furnished-apartments" />
+      <Meta property="og:title" content="Heavenly Stays Mombasa - 1BR Furnished Apartments" />
+      <Meta property="og:description" content="Explore our 1BR furnished apartments perfect for solo travelers, couples, and business guests." />
     <div className={styles.categoryPage}>
       <Navbar />
       
       <header className={styles.categoryHeader}>
         <div className={styles.overlay}>
           <div className={styles.container}>
-            <h1>Explore Our 1BR Furnished Apartments</h1>
+            <h1>1BR Furnished Apartments bnb</h1>
             <p>Perfectly designed for solo travelers, couples, and business guests</p>
           </div>
         </div>
@@ -267,6 +275,7 @@ const CategoryPage = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 // src/pages/HomePage/HomePage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Title, Meta, Link as HeadLink } from 'react-head';
 import styles from './HomePage.module.css';
 import Navbar from '../../components/Navbar/Navbar';
 
@@ -10,10 +11,18 @@ const HomePage = () => {
     'studio': ['Air Conditioning', 'Free WiFi', 'Kitchenette', 'Smart TV'],
     '1br': ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Smart TV'],
     '2br': ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Washing Machine', 'Balcony'],
-    '3br': ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Washing Machine', 'Smart TV', 'Balcony', 'Parking Space']
+    '3br': ['Air Conditioning', 'Free WiFi', 'Fully Equipped Kitchen', 'Washing Machine', 'Smart TV', 'Balcony', 'swiming pool', 'Parking Space', 'Gym', '24/7 Security'],
   };
 
   return (
+    <>
+      <Title>Heavenly stays Mombasa - Find Your Perfect AirBNB</Title>
+      <Meta name="description" content="Furnished Apartments and villas for unforgettable experiences" />
+      <HeadLink rel="canonical" href="https://www.heavenlystays.com/" />
+      <Meta property="og:title" content="Heavenly Stays | Find Your Perfect  | AirBNB Mombasa" />
+      <Meta property="og:description" content="Furnished Apartments and villas for unforgettable experiences" />
+      <Meta property="og:image" content={`${process.env.PUBLIC_URL}/images/categories/1br.jpg`} />
+      <Meta property="og:url" content="https://www.heavenlystays.com/" />
     <div className={styles.homePage}>
       <Navbar />
       
@@ -85,7 +94,7 @@ const HomePage = () => {
             </div>
             
             <div className={styles.categoryCard}>
-              <div className={styles.cardImage} style={{backgroundImage: `url('${process.env.PUBLIC_URL}/images/categories/3br.jpg')`}}>
+              <div className={styles.cardImage} style={{backgroundImage: `url('${process.env.PUBLIC_URL}/images/categories/3br5.jpg')`}}>
                 <h3>3BR Furnished Apartment</h3>
               </div>
               <div className={styles.cardDetails}>
@@ -104,6 +113,7 @@ const HomePage = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
