@@ -16,7 +16,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Title>Heavenly stays Mombasa - Find Your Perfect AirBNB</Title>
+      <Title>Heavenly stays Mombasa | Nakuru | Find Your Perfect AirBNB</Title>
       <Meta name="description" content="Furnished Apartments and villas for unforgettable experiences" />
       <HeadLink rel="canonical" href="https://www.heavenlystays.com/" />
       <Meta property="og:title" content="Heavenly Stays | Find Your Perfect  | AirBNB Mombasa" />
